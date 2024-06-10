@@ -7,6 +7,7 @@ defmodule QuantumProject.Posts do
   alias QuantumProject.Repo
 
   alias QuantumProject.Posts.Post
+  require Logger
 
   @doc """
   Returns the list of posts.
@@ -17,10 +18,19 @@ defmodule QuantumProject.Posts do
       [%Post{}, ...]
 
   """
+
   def create_a_post do
     %Post{}
-    |> Post.changeset(%{title: "My quantum post", description: "This is my first post, made by quantum"})
+    |> Post.changeset(%{
+      title: "My quantum post",
+      description: "This is my first post, made by quantum"
+    })
     |> Repo.insert()
+
+    Logger.info("|============== [Post created] ================|\n
+    |                                                           |\n
+    |                                                           |\n
+    |============== [Post created] ================|")
   end
 
   def list_posts do
