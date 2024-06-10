@@ -12,7 +12,7 @@ config :quantum_project,
 
 config :quantum_project, QuantumProject.Scheduler,
   jobs: [
-    {"* * * * * *", {QuantumProject.Posts, :create_a_post, []}},
+    {"* * * * *", {QuantumProject.Posts, :create_a_post, []}},
     # This job runs every day at midnight
     # {"@daily", {QuantumProject.Posts, :create_a_post, []}}
   ]
